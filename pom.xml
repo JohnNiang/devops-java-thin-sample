@@ -3,9 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.kubesphere.devops</groupId>
-    <artifactId>devops-sample</artifactId>
+    <artifactId>devops-thin-sample</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>devops-sample :: HelloWorld Demo</name>
+    <name>devops-thin-sample</name>
+    <description>DevOps Java HelloWorld Demo.</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

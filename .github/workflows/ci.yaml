@@ -1,4 +1,4 @@
-name: Halo CI
+name: DevOps java thin sample CI
 
 on:
   push:
