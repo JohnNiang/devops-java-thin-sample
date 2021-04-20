@@ -20,13 +20,12 @@
         <sonar.groovy.binaries>target/classes</sonar.groovy.binaries>
     </properties>
 
-    <!-- Spring Boot 启动父依赖 -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.11.RELEASE</version>
     </parent>
-    <!--更新maven 阿里云仓库镜像地址-->
+
     <repositories>
         <repository>
             <id>spring</id>
