@@ -6,7 +6,9 @@ pipeline {
   }
 
     parameters {
-        string(name:'TAG_NAME',defaultValue: '',description:'')
+        string(name:'TAG_NAME',defaultValue: '',description:'Docker tag name of the application')
+        string(name: 'CACHE_IMAGE_NAME', defaultValue: 'kubespheresig/devops-java-sample-cache:1.0.0', description: 'Docker image name (include tag) maven repository cache')
+        booleanParam(name: 'OFFLINE_MODE', defaultValue: true, description: 'Running in offline mode.')
     }
 
     environment {
@@ -23,6 +25,23 @@ pipeline {
         stage ('checkout scm') {
             steps {
                 checkout(scm)
+            }
+        }
+
+        stage ('copy cache') {
+            when {
+              expression {
+                return params.OFFLINE_MODE
+              }
+            }
+            steps {
+              sh '''
+                rmdir artifacts && mkdir -p artifacts/m2
+                CID=$(docker create $CACHE_IMAGE_NAME)
+                docker cp $PID:/root/.m2/. artifacts/m2
+                docker rm $PID
+                echo "Cached maven repository successfully."
+              '''
             }
         }
 
