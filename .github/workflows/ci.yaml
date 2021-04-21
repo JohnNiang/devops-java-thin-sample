@@ -38,5 +38,5 @@ jobs:
           file: ./Dockerfile-cache
           push: true
           tags: |
-            johnniang/devops-java-thin-sample-cache:latest
-            johnniang/devops-java-thin-sample-cache:1.0.0
+            kubespheresig/devops-java-sample-cache:latest
+            kubespheresig/devops-java-sample-cache:1.0.0
