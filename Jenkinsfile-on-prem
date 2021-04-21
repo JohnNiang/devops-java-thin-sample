@@ -38,6 +38,7 @@ pipeline {
               container ('maven') {
                 sh '''
                   rmdir `pwd`/artifacts || mkdir -p `pwd`/artifacts/m2
+                  docker pull $CACHE_IMAGE_NAME
                   CID=$(docker create $CACHE_IMAGE_NAME)
                   docker cp $CID:/root/.m2/. `pwd`/artifacts/m2
                   docker rm $CID
