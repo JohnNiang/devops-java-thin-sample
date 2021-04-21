@@ -51,6 +51,8 @@ pipeline {
         stage ('unit test') {
             steps {
                 container ('maven') {
+                    sh 'ls -lah `pwd`'
+                    sh 'ls -lah `pwd`/artifacts/m2 || true'
                     sh 'mvn -B -o -gs `pwd`/configuration/settings.xml clean test'
                 }
             }
