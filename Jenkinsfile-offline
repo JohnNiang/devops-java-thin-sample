@@ -6,6 +6,7 @@ pipeline {
   }
 
     parameters {
+        string(name: 'DOCERHUB_NAMESPACE', defaultValue: 'johnniang', description: 'Docker hub namespace')
         string(name:'TAG_NAME',defaultValue: '',description:'')
         string(name: 'CACHE_IMAGE_NAME', defaultValue: 'kubespheresig/devops-java-sample-cache', description: 'Docker image name (include tag) maven repository cache')
         booleanParam(name: 'OFFLINE_MODE', defaultValue: true, description: 'Running in offline mode.')
@@ -16,7 +17,6 @@ pipeline {
         GITHUB_CREDENTIAL_ID = 'github-id'
         KUBECONFIG_CREDENTIAL_ID = 'demo-kubeconfig'
         REGISTRY = 'docker.io'
-        DOCKERHUB_NAMESPACE = 'docker_username'
         GITHUB_ACCOUNT = 'kubesphere'
         APP_NAME = 'devops-java-sample'
     }
